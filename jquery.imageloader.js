@@ -15,17 +15,18 @@
             delete imageLoadIntervals[key];
             delete imageLoadTimeouts[key];
             delete imageLoadHandlers[key];
-            loadedImages[key].resolveWith(img, img);
+            loadedImages[key].resolveWith(img, [img[0]]); // unbox img from a jQuery object before adding to an array
         }
     }
 
     function imageLoadTimeout(key) {
+        console.log("timeout", key);
         if (imageLoadIntervals[key]) {
             clearInterval(imageLoadIntervals[key]);
             delete imageLoadIntervals[key];
             delete imageLoadTimeouts[key];
             delete imageLoadTimeoutHandlers[key];
-            loadedImages[key].rejectWith();
+            loadedImages[key].reject();
         }
     }
 
