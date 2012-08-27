@@ -43,7 +43,7 @@
         // set image load check interval
         imageLoadIntervals[key] = setInterval(imageLoadHandlers[key], 100);
         // do not load forever
-        imageLoadTimeouts[key] = setTimeout(imageLoadTimeoutHandlers[key], 1000);
+        imageLoadTimeouts[key] = setTimeout(imageLoadTimeoutHandlers[key], 5000);
         // set load event
         img.load(imageLoadHandlers[key]);
         // save deferred and return
